@@ -1,0 +1,1 @@
+export const logo="https://www.freepnglogos.com/uploads/logo-myntra-png/myntra-logo-in-circle-transparent-background-21.png"
