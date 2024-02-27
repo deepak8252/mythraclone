@@ -11,7 +11,7 @@ const Brand1 = () => {
   // pro = pro || 'default';
 
   var settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
@@ -47,16 +47,20 @@ const Brand1 = () => {
   };
 
   return (
-    <div className='mt-16 px-10 py-10'>
-      <h2 className='pb-5'>MEDAL WORTHY BRANDS TO BAG</h2>
+    <div className='mt-16 px-10 py-10 bg-violet-300'>
+      <h2 className='pb-5 text-center'>MEDAL WORTHY BRANDS TO BAG</h2>
       <div className=''>
         <Slider {...settings}>
           {
             brand.map(item => (
-              <Link to={`/product/${item.id}`} className='p-4  shadow-lg cursor-pointer  mx-4 flex flex-col justify-center items-center' key={item.id}>
-                <img src={item.img} alt="" className='w-52 shadow-2xl h-52' />
-                <p className='font-bold capitalize text-lg py-3'>{item.price} rs</p>
+              <>
+                    <div className='sm:w-52 w-full mx-auto'>
+                    <Link to={`/product/${item.id}`} className='p-4 rounded-lg bg-white cursor-pointer shadow-xl no-underline  flex flex-col justify-center items-center' key={item.id}>
+                <img src={item.img} alt="" className='w-52  h-52' />
+                <p className='font-bold capitalize text-black no-underline text-lg py-3'>{item.price} rs</p>
               </Link>
+                    </div>
+              </>
             ))
           }
         </Slider>

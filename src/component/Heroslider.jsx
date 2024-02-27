@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { herodata } from '../util/Hero';
 var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     navs:false,
