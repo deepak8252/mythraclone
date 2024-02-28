@@ -57,7 +57,7 @@ const Brand1 = () => {
                     <div className='sm:w-52 w-full mx-auto'>
                     <Link to={`/product/${item.id}`} className='p-4 rounded-lg bg-white cursor-pointer shadow-xl no-underline  flex flex-col justify-center items-center' key={item.id}>
                 <img src={item.img} alt="" className='w-52  h-52' />
-                <p className='font-bold capitalize text-black no-underline text-lg py-3'>{item.price} rs</p>
+                {/* <p className='font-bold capitalize text-black no-underline text-lg py-3'>{item.price} rs</p> */}
               </Link>
                     </div>
               </>

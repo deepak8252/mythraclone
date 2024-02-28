@@ -4,7 +4,7 @@ import Productcate from './Productcate';
 import { brand } from '../util/Hero';
 import { Addtocart } from '../store/cartSlice';
 import { useDispatch } from 'react-redux';
-
+import StarIcon from '@mui/icons-material/Star';
 const Product = () => {
   const { pro } = useParams();
   const [product, setProduct] = useState({});
@@ -41,11 +41,18 @@ const Product = () => {
     <div className='flex  py-10 bg-indigo-100 flex-wrap gap-10 justify-center items-center'>
       
       {relatedProduct && relatedProduct.map((item) => (
-        <Link to={`/product/${item.id}`}className='flex py-5 items-center shadow-lg p-3 justify-center bg-teal-200 flex-col w-72 rounded-2xl' key={item.id}>
+        <Link to={`/product/${item.id}`}className='flex py-5 no-underline text-black items-center shadow-lg p-3 justify-center bg-white flex-col w-72 rounded-2xl' key={item.id}>
         <img  src={item.img} alt="" className=' w-52 h-52 rounded-2xl' />
         <div className='flex justify-center mt-3 items-center gap-6'>
         <p className=' font-bold capitalize'>rs{" "}{item.defprice}</p>
-        <p className='font-bold capitalize'>{item.cateo}</p>
+       
+       <p className='font-bold capitalize'>{item.cateo}</p>
+        <p className='text-orange-500 '>
+            <StarIcon/>
+            <StarIcon/>
+            <StarIcon/>
+        </p>
+     
         </div>
         <div>
           <button className='bg-orange-500 text-white py-2 px-3 capitalize font-semibold shadow-lg'onClick={()=>addtocart(item)} > buy now </button>

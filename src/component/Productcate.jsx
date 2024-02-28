@@ -6,7 +6,7 @@ const Productcate = () => {
    
   return (
 <div className=' bg-red-200'>
-<h2 className=' my-5 text-center text-white capitalize font-serif font-semibold'>all product cateogery</h2>
+<h2 className=' my-5 text-center text-white capitalize font-semibold'>all product cateogery</h2>
 <div className='flex flex-wrap gap-5 items-center justify-between px-12'>
        
        {
@@ -18,7 +18,7 @@ const Productcate = () => {
                    <p className='mt-2 font-bold capitalize'>rs{" "}{item.defprice}</p>
         <p className='font-bold capitalize'>{item.cateo}</p>
         <div>
-          <button className='bg-orange-500 text-white pb-2 px-3 capitalize font-semibold shadow-lg' > view product </button>
+          <button className='bg-orange-500 text-white py-2 px-3 capitalize font-semibold shadow-lg' > view product </button>
                </div>
                </Link>
                </>

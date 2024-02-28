@@ -1,8 +1,12 @@
 import React from 'react'
+import Productcate from '../component/Productcate'
+
 
 const Women = () => {
   return (
-    <div>Women</div>
+    <div>
+        <Productcate />
+    </div>
   )
 }
 
