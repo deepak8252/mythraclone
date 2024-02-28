@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { logo } from '../util/constant';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { brand } from '../util/Hero';
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
@@ -20,7 +21,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 const Navbars = () => {
-  const cartproduct=useSelector((state)=>state.cart.cartitem)
+  const navigate=useNavigate()
+  const [search,setSearch]=useState("");
+ 
+  console.log(search)
+  const cartproduct=useSelector((state)=>state.cart.cartitem);
+  const handleSearch=(e)=>{
+  e.preventDefault();
+navigate(`/search/${search}`);
+setSearch("")
+  }
   return (
     <div className='bg-teal-500 shadow-lg sticky top-0 z-30 '>
     
@@ -38,13 +48,15 @@ const Navbars = () => {
               <Nav.Link className='capitalize text-light font-sans font-semibold pr-3 ' as={NavLink} to="/women" >womens</Nav.Link>
               <Nav.Link className='capitalize text-light font-sans font-semibold pr-3 ' as={NavLink} to="/kids" >kidss</Nav.Link>
               <Nav.Link className='capitalize text-light font-sans font-semibold pr-3 ' as={NavLink} to="/homeliving" >mens</Nav.Link>
-               <div className='flex items-center ml-4'>
-                <input type="text" placeholder='search item ' className='border p-2 rounded-lg'/>
-               </div>
+               <form className='flex items-center ml-4' onSubmit={handleSearch}>
+                <input type="text" placeholder='search item ' className='border p-2 rounded-lg' value={search} onChange={(e)=>setSearch(e.target.value.toLowerCase())} />
+               </form>
             </Nav>
           </Navbar.Collapse>
          <div className='flex gap-10 capitalize font-sans font-semibold'>
-         <Nav.Link as={NavLink} to="/men" className='text-light' >profile</Nav.Link>
+         <Nav.Link as={NavLink} to="/men" className='text-light' >
+          <AccountBoxIcon/>
+         </Nav.Link>
           <Nav.Link as={NavLink} to="/men" >
             <FavoriteBorderIcon className='text-light'/>
           </Nav.Link>

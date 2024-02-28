@@ -15,9 +15,12 @@ import HomeLiving from "./pages/HomeLiving";
 import Product from "./component/Product"
 import { Provider } from 'react-redux';
 import Appstore from './store/Appstore';
+import SearchTerm from './component/SearchTerm';
+import { useEffect, useState } from 'react';
+import { brand } from './util/Hero';
 function App() {
-
-
+const [data,setData]=useState([...brand])
+ 
   return (
     <>
     
@@ -31,7 +34,8 @@ function App() {
   <Route path='/kids' element={<Kids/>}/>
   <Route path='/homeliving' element={<HomeLiving/>}/>
   <Route path='/cart' element={<Cart/>}/>
-<Route path='/product/:pro' element={<Product/>}/>
+<Route path='/product/:pro' element={<Product  />}/>
+<Route path='/search/:term' element={<SearchTerm/>}/>
     </Routes>
     </BrowserRouter>
     </Provider>
